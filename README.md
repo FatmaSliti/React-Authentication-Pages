@@ -2,7 +2,7 @@
 
 A simple React project showcasing sign-in and sign-up pages with form validation.
 
-[React Authentication Pages](https://login-5c8fd.web.app/)
+[React Authentication Pages Demo](https://login-5c8fd.web.app/)
 
 ## Installation
 1. Clone this repository to your local machine.
