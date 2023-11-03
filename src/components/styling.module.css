@@ -42,7 +42,6 @@
 }
 
 .submitButton {
-    width: 20%;
     padding: 10px;
     background-color: #0056b3;
     color: #fff;
@@ -74,4 +73,13 @@
 .validate {
     color: #b40e0e;
     margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px) {
+
+    img,
+    .image,
+    .imageContainer {
+        display: none;
+    }
 }

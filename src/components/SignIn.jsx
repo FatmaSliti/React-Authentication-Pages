@@ -83,7 +83,6 @@ function SignIn() {
                                 </p>
                             )}
                         </div>
-
                         {(message && !enteredEmail) ||
                             (!enteredPassword && <p style={{ color: "red" }}>{message}</p>)}
                         <button className={styles.submitButton}>Submit</button>
