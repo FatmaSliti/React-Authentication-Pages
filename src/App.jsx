@@ -1,4 +1,5 @@
 import "./App.css";
+import Home from "./components/Home";
 import RootLayout from "./components/RootLayout";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
@@ -10,6 +11,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <RootLayout />,
     children: [
+      {path: '/', element: <Home />},
       { path: "/signIn", element: <SignIn /> },
       { path: "/signUp", element: <SignUp /> },
     ],
