@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import styles from './SignIn.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import styles from "./styling.module.css";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
     const navigate = useNavigate();
-    const [enteredEmail, setEnteredEmail] = useState('');
+    const [enteredEmail, setEnteredEmail] = useState("");
     const [emailIsValid, setEmailIsValid] = useState(false);
 
-    const [enteredPassword, setEnteredPassword] = useState('');
+    const [enteredPassword, setEnteredPassword] = useState("");
     const [passwordIsValid, setPasswordIsValid] = useState(false);
 
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [confirmPasswordIsValid, setConfirmPasswordIsValid] = useState(false);
 
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = useState("");
 
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -35,24 +35,25 @@ function SignUp() {
     const formSubmissionHandler = (e) => {
         e.preventDefault();
 
-        const emailValid = emailIsValid && enteredEmail.trim() !== '';
-        const passwordValid = passwordIsValid && enteredPassword.trim() !== '';
-        const confirmPasswordValid = confirmPasswordIsValid && confirmPassword.trim() !== '';
+        const emailValid = emailIsValid && enteredEmail.trim() !== "";
+        const passwordValid = passwordIsValid && enteredPassword.trim() !== "";
+        const confirmPasswordValid =
+            confirmPasswordIsValid && confirmPassword.trim() !== "";
 
         if (!emailValid || !passwordValid || !confirmPasswordValid) {
             // setMessage('Please fill in all the fields correctly.');
             return;
         } else if (enteredPassword !== confirmPassword) {
-            setMessage('Passwords do not match!');
+            setMessage("Passwords do not match!");
             return;
         } else {
-            setMessage('');
+            setMessage("");
         }
 
-        setEnteredEmail('');
-        setEnteredPassword('');
-        setConfirmPassword('');
-        navigate('/');
+        setEnteredEmail("");
+        setEnteredPassword("");
+        setConfirmPassword("");
+        navigate("/");
     };
 
     return (
@@ -65,7 +66,14 @@ function SignUp() {
                             <label htmlFor="email" className={styles.label}>
                                 Email
                             </label>
-                            <input required type="text" id="email" value={enteredEmail} className={styles.input} onChange={changeEmailHandler} />
+                            <input
+                                required
+                                type="text"
+                                id="email"
+                                value={enteredEmail}
+                                className={styles.input}
+                                onChange={changeEmailHandler}
+                            />
                             {emailIsValid || !enteredEmail ? null : (
                                 <p className={styles.validate}>Please enter a valid email</p>
                             )}
@@ -74,17 +82,33 @@ function SignUp() {
                             <label htmlFor="password" className={styles.label}>
                                 Password
                             </label>
-                            <input required type="password" id="password" value={enteredPassword} className={styles.input} onChange={changePasswordHandler} />
+                            <input
+                                required
+                                type="password"
+                                id="password"
+                                value={enteredPassword}
+                                className={styles.input}
+                                onChange={changePasswordHandler}
+                            />
                             {passwordIsValid || !enteredPassword ? null : (
-                                <p className={styles.validate}>Please enter a valid password (at least 6 characters)</p>
+                                <p className={styles.validate}>
+                                    Please enter a valid password (at least 6 characters)
+                                </p>
                             )}
                         </div>
                         <div className={styles.formGroup}>
                             <label htmlFor="confirmPassword" className={styles.label}>
                                 Confirm Password
                             </label>
-                            <input required type="password" id="confirmPassword" value={confirmPassword} className={styles.input} onChange={changeConfirmPassword} />
-                            {!confirmPasswordIsValid && confirmPassword.trim() !== '' ? (
+                            <input
+                                required
+                                type="password"
+                                id="confirmPassword"
+                                value={confirmPassword}
+                                className={styles.input}
+                                onChange={changeConfirmPassword}
+                            />
+                            {!confirmPasswordIsValid && confirmPassword.trim() !== "" ? (
                                 <p className={styles.validate}>Passwords do not match</p>
                             ) : null}
                         </div>
